@@ -1,0 +1,41 @@
+classdef gateway < bpmn.flowNode
+% GATEWAY abstract class, as part of a Business Process Modeling Notation (BPMN) model. 
+%
+% Properties:
+% gatewayDirection:     gateway direction (string): Unspecified - Diverging - Converging - Mixed 
+%
+% Copyright (c) 2012-2017, Imperial College London 
+% All rights reserved.
+
+properties
+    gatewayDirection;       % gateway direction (string): Unspecified - Diverging - Converging - Mixed 
+end
+
+methods
+%public methods, including constructor
+
+    %constructor
+    function obj = gateway(id, name)
+        if(nargin == 0)
+            disp('Not enough input arguments'); 
+            id = int2str(rand()); 
+        elseif(nargin <= 1)
+            disp('Not enough input arguments'); 
+            name = ['gateway_',id];
+        end
+        obj@bpmn.flowNode(id,name); 
+        obj.gatewayDirection = 'Unspecified'; 
+    end
+    
+    function obj = setGatewayDirection(obj, dir)
+        obj.gatewayDirection = dir;
+    end
+    
+    %toString
+    function myString = toString(obj)
+        myString = toString@bpmn.flowNode(obj);
+    end
+
+end
+    
+end

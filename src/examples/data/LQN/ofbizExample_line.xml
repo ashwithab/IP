@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cqn-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CQNmodel">
+   <processor name="FrontEnd_CPU_Processor" util="1.164603071614518e-01"/>
+   <processor name="UsageScenario_userType1_1_Processor" util="9.940355981130113e+00"/>
+   <processor name="UsageScenario_userType2_7_Processor" util="9.943179973067460e+00"/>
+   <workload name="UsageScenario_userType1_1_Processor" responseTime="6.000000000000000e-02" throughput="9.940355981130113e-01">
+      <station name="FrontEnd_CPU_Processor" responseTime="6.000000000000000e-02"/>
+      <station name="UsageScenario_userType1_1_Processor" responseTime="9.999999999999998e+00"/>
+      <station name="UsageScenario_userType2_7_Processor" responseTime="0.000000000000000e+00"/>
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="3.151533582124145e-02"/>
+         <percentile level="2.000000000000000e-01" value="3.903431668721925e-02"/>
+         <percentile level="3.000000000000000e-01" value="4.517058913155774e-02"/>
+         <percentile level="4.000000000000000e-01" value="5.090992222473054e-02"/>
+         <percentile level="5.000000000000000e-01" value="5.670296904187870e-02"/>
+         <percentile level="6.000000000000000e-01" value="6.292213109056848e-02"/>
+         <percentile level="7.000000000000000e-01" value="7.006017935844934e-02"/>
+         <percentile level="8.000000000000000e-01" value="7.906164577720066e-02"/>
+         <percentile level="9.000000000000000e-01" value="9.275249218891454e-02"/>
+      </responseTimeDistribution>
+   </workload>
+   <workload name="UsageScenario_userType2_7_Processor" responseTime="1.408000000000000e+01" throughput="7.102271409333900e-01">
+      <station name="FrontEnd_CPU_Processor" responseTime="8.000000000000000e-02"/>
+      <station name="UsageScenario_userType1_1_Processor" responseTime="0.000000000000000e+00"/>
+      <station name="UsageScenario_userType2_7_Processor" responseTime="1.400000000000000e+01"/>
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="4.655846171142794e-02"/>
+         <percentile level="2.000000000000000e-01" value="5.575834524132525e-02"/>
+         <percentile level="3.000000000000000e-01" value="6.312123803747632e-02"/>
+         <percentile level="4.000000000000000e-01" value="6.991362782480023e-02"/>
+         <percentile level="5.000000000000000e-01" value="7.669383137936436e-02"/>
+         <percentile level="6.000000000000000e-01" value="8.389951391786589e-02"/>
+         <percentile level="7.000000000000000e-01" value="9.209347822045487e-02"/>
+         <percentile level="8.000000000000000e-01" value="1.023317117300768e-01"/>
+         <percentile level="9.000000000000000e-01" value="1.177099695338099e-01"/>
+      </responseTimeDistribution>
+   </workload>
+   <Entry name="RequestHandler_HandlerIF_main_345_Processor" responseTime="1.000000000000000e-02" throughput="9.940355981130115e-01">
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="1.053779812289713e-03"/>
+         <percentile level="2.000000000000000e-01" value="2.231754002418623e-03"/>
+         <percentile level="3.000000000000000e-01" value="3.568124700783250e-03"/>
+         <percentile level="4.000000000000000e-01" value="5.111767292914710e-03"/>
+         <percentile level="5.000000000000000e-01" value="6.933202549401931e-03"/>
+         <percentile level="6.000000000000000e-01" value="9.168693588467674e-03"/>
+         <percentile level="7.000000000000000e-01" value="1.204703178165900e-02"/>
+         <percentile level="8.000000000000000e-01" value="1.609914879991173e-02"/>
+         <percentile level="9.000000000000000e-01" value="2.302934566433209e-02"/>
+      </responseTimeDistribution>
+   </Entry>
+   <Entry name="RequestHandler_HandlerIF_login_345_Processor" responseTime="1.000000000000000e-02" throughput="9.940355981130115e-01">
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="1.053779812291978e-03"/>
+         <percentile level="2.000000000000000e-01" value="2.231754002420230e-03"/>
+         <percentile level="3.000000000000000e-01" value="3.568124700781416e-03"/>
+         <percentile level="4.000000000000000e-01" value="5.111767292909139e-03"/>
+         <percentile level="5.000000000000000e-01" value="6.933202549358907e-03"/>
+         <percentile level="6.000000000000000e-01" value="9.168693588400646e-03"/>
+         <percentile level="7.000000000000000e-01" value="1.204703178165942e-02"/>
+         <percentile level="8.000000000000000e-01" value="1.609914879980266e-02"/>
+         <percentile level="9.000000000000000e-01" value="2.302934566417068e-02"/>
+      </responseTimeDistribution>
+   </Entry>
+   <Entry name="RequestHandler_HandlerIF_checkLogin_345_Processor" responseTime="1.000000000000000e-02" throughput="9.940355981130115e-01">
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="5.317757829069897e-03"/>
+         <percentile level="2.000000000000000e-01" value="8.243721587869172e-03"/>
+         <percentile level="3.000000000000000e-01" value="1.097370358159301e-02"/>
+         <percentile level="4.000000000000000e-01" value="1.376427687623967e-02"/>
+         <percentile level="5.000000000000000e-01" value="1.678417556146504e-02"/>
+         <percentile level="6.000000000000000e-01" value="2.022563463627546e-02"/>
+         <percentile level="7.000000000000000e-01" value="2.439377080258229e-02"/>
+         <percentile level="8.000000000000000e-01" value="2.994521361536343e-02"/>
+         <percentile level="9.000000000000000e-01" value="3.890136821545611e-02"/>
+      </responseTimeDistribution>
+   </Entry>
+   <Entry name="RequestHandler_HandlerIF_logout_345_Processor" responseTime="1.000000000000000e-02" throughput="9.940355981130115e-01">
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="1.053779812291978e-03"/>
+         <percentile level="2.000000000000000e-01" value="2.231754002420230e-03"/>
+         <percentile level="3.000000000000000e-01" value="3.568124700781414e-03"/>
+         <percentile level="4.000000000000000e-01" value="5.111767292912423e-03"/>
+         <percentile level="5.000000000000000e-01" value="6.933202549381064e-03"/>
+         <percentile level="6.000000000000000e-01" value="9.168693588440727e-03"/>
+         <percentile level="7.000000000000000e-01" value="1.204703178166198e-02"/>
+         <percentile level="8.000000000000000e-01" value="1.609914879989959e-02"/>
+         <percentile level="9.000000000000000e-01" value="2.302934566434527e-02"/>
+      </responseTimeDistribution>
+   </Entry>
+   <Entry name="RequestHandler_HandlerIF_quickadd_345_Processor" responseTime="1.000000000000000e-02" throughput="7.102271409333900e-01">
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="1.053738906988229e-03"/>
+         <percentile level="2.000000000000000e-01" value="2.233473307427474e-03"/>
+         <percentile level="3.000000000000000e-01" value="3.567249176795231e-03"/>
+         <percentile level="4.000000000000000e-01" value="5.116178630695134e-03"/>
+         <percentile level="5.000000000000000e-01" value="6.937572046033242e-03"/>
+         <percentile level="6.000000000000000e-01" value="9.170838749467142e-03"/>
+         <percentile level="7.000000000000000e-01" value="1.204350407354366e-02"/>
+         <percentile level="8.000000000000000e-01" value="1.609975519827673e-02"/>
+         <percentile level="9.000000000000000e-01" value="2.302893952978020e-02"/>
+      </responseTimeDistribution>
+   </Entry>
+</cqn-model>

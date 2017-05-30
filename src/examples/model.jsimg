@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sim xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disableStatisticStop="true" logDecimalSeparator="." logDelimiter=";" logPath="" logReplaceMode="0" maxSamples="10000" name="model.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+   <userClass customers="10" name="Initiating Process_processor" priority="0" referenceSource="Initiating Process_processor" type="closed"/>
+   <node name="Human_2_processor">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="PSStrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="PSServer">
+         <parameter classPath="java.lang.Integer" name="maxJobs">
+            <value>1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+               <value>1</value>
+            </subParameter>
+         </parameter>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+               <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+               <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                  <subParameter classPath="java.lang.Double" name="lambda">
+                     <value>8.333333e-02</value>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Human_3_processor</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>5.000000e-01</value>
+                     </subParameter>
+                  </subParameter>
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Human_4_processor</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>5.000000e-01</value>
+                     </subParameter>
+                  </subParameter>
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Fork</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+   </node>
+   <node name="Human_3_processor">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="PSStrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="PSServer">
+         <parameter classPath="java.lang.Integer" name="maxJobs">
+            <value>1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+               <value>1</value>
+            </subParameter>
+         </parameter>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+               <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+               <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                  <subParameter classPath="java.lang.Double" name="lambda">
+                     <value>7.692308e-02</value>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+         </parameter>
+      </section>
+   </node>
+   <node name="Human_4_processor">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="PSStrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="PSServer">
+         <parameter classPath="java.lang.Integer" name="maxJobs">
+            <value>1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+               <value>1</value>
+            </subParameter>
+         </parameter>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+               <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+               <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                  <subParameter classPath="java.lang.Double" name="lambda">
+                     <value>7.142857e-02</value>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+         </parameter>
+      </section>
+   </node>
+   <node name="Human_5_processor">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="PSStrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="PSServer">
+         <parameter classPath="java.lang.Integer" name="maxJobs">
+            <value>1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+               <value>1</value>
+            </subParameter>
+         </parameter>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+               <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+               <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                  <subParameter classPath="java.lang.Double" name="lambda">
+                     <value>6.666667e-02</value>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Initiating Process_processor</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+   </node>
+   <node name="Initiating Process_processor">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="Delay">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+               <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+               <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                  <subParameter classPath="java.lang.Double" name="lambda">
+                     <value>1.000000e-01</value>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Human_2_processor</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+   </node>
+   <node name="Fork">
+      <section className="Queue">
+         <parameter classPath="java.lang.Integer" name="size">
+            <value>-1</value>
+         </parameter>
+         <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="java.lang.String" name="dropStrategy">
+               <value>drop</value>
+            </subParameter>
+         </parameter>
+         <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="NetStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+         </parameter>
+      </section>
+      <section className="ServiceTunnel"/>
+      <section className="Fork">
+         <parameter classPath="java.lang.Integer" name="jobsPerLink">
+            <value>1</value>
+         </parameter>
+         <parameter classPath="java.lang.Integer" name="block">
+            <value>-1</value>
+         </parameter>
+         <parameter classPath="java.lang.Boolean" name="isSimplifiedFork">
+            <value>true</value>
+         </parameter>
+         <parameter array="true" classPath="jmt.engine.NetStrategies.ForkStrategy" name="ForkStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.ForkStrategies.ProbabilitiesFork" name="Branch Probabilities">
+               <subParameter array="true" classPath="jmt.engine.NetStrategies.ForkStrategies.OutPath" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.NetStrategies.ForkStrategies.OutPath" name="OutPathEntry">
+                     <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="outUnitProbability">
+                        <subParameter classPath="java.lang.String" name="stationName">
+                           <value>Human_3_processor</value>
+                        </subParameter>
+                        <subParameter classPath="java.lang.Double" name="probability">
+                           <value>1.0</value>
+                        </subParameter>
+                     </subParameter>
+                     <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="JobsPerLinkDis">
+                        <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                           <subParameter classPath="java.lang.String" name="numbers">
+                              <value>1</value>
+                           </subParameter>
+                           <subParameter classPath="java.lang.Double" name="probability">
+                              <value>1.0</value>
+                           </subParameter>
+                        </subParameter>
+                     </subParameter>
+                  </subParameter>
+                  <subParameter classPath="jmt.engine.NetStrategies.ForkStrategies.OutPath" name="OutPathEntry">
+                     <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="outUnitProbability">
+                        <subParameter classPath="java.lang.String" name="stationName">
+                           <value>Human_4_processor</value>
+                        </subParameter>
+                        <subParameter classPath="java.lang.Double" name="probability">
+                           <value>1.0</value>
+                        </subParameter>
+                     </subParameter>
+                     <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="JobsPerLinkDis">
+                        <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                           <subParameter classPath="java.lang.String" name="numbers">
+                              <value>1</value>
+                           </subParameter>
+                           <subParameter classPath="java.lang.Double" name="probability">
+                              <value>1.0</value>
+                           </subParameter>
+                        </subParameter>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+   </node>
+   <node name="Join">
+      <section className="Join">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.JoinStrategy" name="JoinStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.JoinStrategies.NormalJoin" name="Standard Join">
+               <subParameter classPath="java.lang.Integer" name="numRequired">
+                  <value>-1</value>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+      <section className="ServiceTunnel"/>
+      <section className="Router">
+         <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+            <refClass>Initiating Process_processor</refClass>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Human_5_processor</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
+         </parameter>
+      </section>
+   </node>
+   <measure alpha="0.01" name="Performance_1" nodeType="station" precision="0.03" referenceNode="Human_2_processor" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_2" nodeType="station" precision="0.03" referenceNode="Human_3_processor" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_3" nodeType="station" precision="0.03" referenceNode="Human_4_processor" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_4" nodeType="station" precision="0.03" referenceNode="Human_5_processor" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_5" nodeType="station" precision="0.03" referenceNode="Initiating Process_processor" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_6" nodeType="station" precision="0.03" referenceNode="Fork" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <measure alpha="0.01" name="Performance_7" nodeType="station" precision="0.03" referenceNode="Join" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
+   <connection source="Human_2_processor" target="Fork"/>
+   <connection source="Human_2_processor" target="Fork"/>
+   <connection source="Fork" target="Human_3_processor"/>
+   <connection source="Fork" target="Human_4_processor"/>
+   <connection source="Join" target="Human_5_processor"/>
+   <connection source="Human_3_processor" target="Join"/>
+   <connection source="Human_4_processor" target="Join"/>
+   <connection source="Human_5_processor" target="Initiating Process_processor"/>
+   <connection source="Initiating Process_processor" target="Human_2_processor"/>
+   <connection source="Human_2_processor" target="Human_3_processor"/>
+   <connection source="Human_2_processor" target="Human_4_processor"/>
+   <connection source="Human_2_processor" target="Fork"/>
+   <connection source="Human_5_processor" target="Initiating Process_processor"/>
+   <connection source="Initiating Process_processor" target="Human_2_processor"/>
+   <connection source="Join" target="Human_5_processor"/>
+   <preload>
+      <stationPopulations stationName="Initiating Process_processor">
+         <classPopulation population="10" refClass="Initiating Process_processor"/>
+      </stationPopulations>
+   </preload>
+</sim>

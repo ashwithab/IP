@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lqnExtensions>
+<environment numStages="3" envID="e1"> 
+ <stage name="SU">
+ 	<transition destName="LC" prob="0.5">
+ 	 <resetRule ruleName="noReset"/>
+ 	</transition>
+ 	<transition destName="HC" prob="0.5">
+ 	 <resetRule ruleName="noReset"/>
+ 	</transition> 
+	<stageTime>
+		<meanTime>10</meanTime>
+	</stageTime>  
+ </stage>
+ <stage name="LC">
+  <transition destName="HC" prob="1" >
+   <resetRule ruleName="noReset"/>
+  </transition>
+  <stageTime>
+		<coxID>stage2</coxID>
+	</stageTime>  
+ </stage>
+ <stage name="HC">
+  <transition destName="LC" prob="1">
+   <resetRule ruleName="noReset"/>
+  </transition>
+  <stageTime>
+		<coxID>stage3</coxID>
+	</stageTime>  
+ </stage>
+</environment>
+
+<envParameter id="FrontEnd_CPU_Processor" paramName="speed-factor" envID="e1">
+	<envValue stage="LC" factor="3"/>
+	<envValue stage="HC" factor="1"/>
+	<envValue stage="SU" factor="0.2"/>
+</envParameter>	
+
+<coxDistribution numPhases="2" coxID="er1"> 
+ <phase meanTime="0.005" completionProb="0" phaseIndex="1"/>
+ <phase meanTime="0.005" completionProb="1" phaseIndex="2"/>
+</coxDistribution>
+
+<coxDistribution numPhases="2" coxID="c1"> 
+ <phase meanTime="0.005" completionProb="0.5" phaseIndex="1"/>
+ <phase meanTime="0.01" completionProb="1" phaseIndex="2"/>
+</coxDistribution>
+
+<coxDistribution numPhases="2" coxID="stage2"> 
+ <phase meanTime="50" completionProb="0.5" phaseIndex="1"/>
+ <phase meanTime="100" completionProb="1" phaseIndex="2"/>
+</coxDistribution>
+
+<coxDistribution numPhases="2" coxID="stage3"> 
+ <phase meanTime="100" completionProb="0" phaseIndex="1"/>
+ <phase meanTime="100" completionProb="1" phaseIndex="2"/>
+</coxDistribution>
+
+
+<coxParameter id="InternalAction_main__Iu1-wMhoEeKON4DtRoKCMw_34_50_Activity" coxID="er1"/>
+<coxParameter id="InternalAction_addcart__5JEHQMhoEeKON4DtRoKCMw_34_50_Activity" coxID="c1"/>
+
+
+
+</lqnExtensions>

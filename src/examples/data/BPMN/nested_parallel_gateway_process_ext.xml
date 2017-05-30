@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmnExtensions>
+<resource id="Human_1" name ="Human 1" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_1" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_2" name ="Human 2" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_2" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_3" name ="Human 3" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_3" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_4" name ="Human 4" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_4" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_5" name ="Human 5" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_5" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_6" name ="Human 6" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_7" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<resource id="Human_7" name ="Human 7" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_9" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<parallelGateway id="ParallelGateway_1" incomingPerLink="1" outgoingPerLink="2" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_4"/>
+ <outgoingLink outgoingLinkID="SequenceFlow_5"/>
+</parallelGateway>
+<parallelGateway id="ParallelGateway_2" incomingPerLink="1" outgoingPerLink="2" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_17"/>
+ <outgoingLink outgoingLinkID="SequenceFlow_18"/>
+</parallelGateway>
+<parallelGateway id="ParallelGateway_3" incomingPerLink="1" outgoingPerLink="1" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_21"/>
+</parallelGateway>
+<parallelGateway id="ParallelGateway_4" incomingPerLink="1" outgoingPerLink="1" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_24"/>
+</parallelGateway>
+<startEvent id="StartEvent_1" meanThinkTime="00:000:00:10:00" multiplicity="10"/>
+</bpmnExtensions>

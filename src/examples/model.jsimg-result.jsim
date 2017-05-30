@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<solutions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" lastRunTime="1495279679918" logDecimalSeparator="." logDelimiter=";" logPath="" modelDefinitionPath="." modelName="model.jsimg" solutionMethod="simulation" xsi:noNamespaceSchemaLocation="SIMmodeloutput.xsd">
+<measure alfa="0.01" analyzedSamples="0" class="Initiating Process_processor" discardedSamples="0" lowerLimit="0.0" maxSamples="10000" meanValue="0.0" measureType="Number of Customers" nodeType="station" precision="0.03" station="Fork" successful="false" upperLimit="0.0"/>
+<measure alfa="0.01" analyzedSamples="0" class="Initiating Process_processor" discardedSamples="0" lowerLimit="0.0" maxSamples="10000" meanValue="0.0" measureType="Number of Customers" nodeType="station" precision="0.03" station="Join" successful="false" upperLimit="0.0"/>
+<measure alfa="0.01" analyzedSamples="0" class="Initiating Process_processor" discardedSamples="0" lowerLimit="0.0" maxSamples="10000" meanValue="0.0" measureType="Number of Customers" nodeType="station" precision="0.03" station="Human_4_processor" successful="false" upperLimit="0.0"/>
+<measure alfa="0.01" analyzedSamples="0" class="Initiating Process_processor" discardedSamples="0" lowerLimit="0.0" maxSamples="10000" meanValue="0.0" measureType="Number of Customers" nodeType="station" precision="0.03" station="Human_5_processor" successful="false" upperLimit="0.0"/>
+<measure alfa="0.01" analyzedSamples="0" class="Initiating Process_processor" discardedSamples="0" lowerLimit="0.0" maxSamples="10000" meanValue="0.0" measureType="Number of Customers" nodeType="station" precision="0.03" station="Initiating Process_processor" successful="false" upperLimit="0.0"/>
+</solutions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cqn-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CQNmodel">
+   <processor name="Human_2_processor" util="0.000000000000000e+00"/>
+   <processor name="Human_3_processor" util="0.000000000000000e+00"/>
+   <processor name="Human_4_processor" util="0.000000000000000e+00"/>
+   <processor name="Human_5_processor" util="0.000000000000000e+00"/>
+   <processor name="Initiating Process_processor" util="0.000000000000000e+00"/>
+   <workload name="Initiating Process_processor" responseTime="0.000000000000000e+00" throughput="0.000000000000000e+00">
+      <station name="Human_2_processor" responseTime="0.000000000000000e+00"/>
+      <station name="Human_3_processor" responseTime="0.000000000000000e+00"/>
+      <station name="Human_4_processor" responseTime="0.000000000000000e+00"/>
+      <station name="Human_5_processor" responseTime="0.000000000000000e+00"/>
+      <station name="Initiating Process_processor" responseTime="0.000000000000000e+00"/>
+   </workload>
+</cqn-model>

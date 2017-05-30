@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmnExtensions>
+<resource id="Human_1" name = "Human 1" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_1" meanExecutionTime="00:000:00:10:00"/>
+</resource>
+<startEvent id="StartEvent_1" meanThinkTime="00:000:00:10:00" multiplicity="10"/>
+</bpmnExtensions>

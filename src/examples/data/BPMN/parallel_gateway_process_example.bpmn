@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ext="http://org.eclipse.bpmn2/ext" id="Definitions_1" targetNamespace="http://org.eclipse.bpmn2/default/collaboration">
+  <collaboration id="Collaboration_1" name="Default Collaboration">
+    <participant id="Participant_1" name="Participant1" processRef="Process_1"/>
+  </collaboration>
+  <process id="Process_1" name="Initiating Process" definitionalCollaborationRef="Collaboration_1" isExecutable="false">
+    <startEvent id="StartEvent_1" name="Start Event 1">
+      <outgoing>SequenceFlow_1</outgoing>
+    </startEvent>
+    <task id="Task_2" name="Turn On Laptop">
+      <incoming>SequenceFlow_1</incoming>
+      <outgoing>SequenceFlow_2</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_2"/>
+    <parallelGateway id="ParallelGateway_1" name="Parallel Gateway 1">
+      <incoming>SequenceFlow_2</incoming>
+      <outgoing>SequenceFlow_3</outgoing>
+      <outgoing>SequenceFlow_4</outgoing>
+    </parallelGateway>
+    <sequenceFlow id="SequenceFlow_2" sourceRef="Task_2" targetRef="ParallelGateway_1"/>
+    <task id="Task_3" name="Write Report On Word">
+      <incoming>SequenceFlow_3</incoming>
+      <outgoing>SequenceFlow_5</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_3" sourceRef="ParallelGateway_1" targetRef="Task_3"/>
+    <task id="Task_4" name="Listen to Spotify">
+      <incoming>SequenceFlow_4</incoming>
+      <outgoing>SequenceFlow_6</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="ParallelGateway_1" targetRef="Task_4"/>
+    <parallelGateway id="ParallelGateway_2" name="Parallel Gateway 2" gatewayDirection="Converging">
+      <incoming>SequenceFlow_5</incoming>
+      <incoming>SequenceFlow_6</incoming>
+      <outgoing>SequenceFlow_7</outgoing>
+    </parallelGateway>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="Task_3" targetRef="ParallelGateway_2"/>
+    <sequenceFlow id="SequenceFlow_6" sourceRef="Task_4" targetRef="ParallelGateway_2"/>
+    <task id="Task_5" name="Submit Report on CATe">
+      <incoming>SequenceFlow_7</incoming>
+      <outgoing>SequenceFlow_8</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_7" sourceRef="ParallelGateway_2" targetRef="Task_5"/>
+    <endEvent id="EndEvent_1" name="End Event 1">
+      <incoming>SequenceFlow_8</incoming>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_8" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </process>
+</definitions>
