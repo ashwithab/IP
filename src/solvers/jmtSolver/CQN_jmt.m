@@ -57,87 +57,101 @@ for k = 1:K
         end
     end
 end
-disp(P);
 
-%disp(M);
-%disp(K);
-
-
-
-numberOfForkStations = 0;
-for i=1:M
-    for k=1:K
-        rowSum = sum(P((i-1)*K+k,:));
-        if rowSum > 1
-            numberOfForkStations = numberOfForkStations + 1; 
-        end
-    end
-end
-
-numberOfForkJoinStations = numberOfForkStations * 2;
-
-forkArray = [];
-for i=1:M
-    for k=1:K
-        rowSum = sum(P((i-1)*K+k,:));
-        if rowSum > 1 
-           node{M+i} = ForkStation(model, 'Fork');
-           forkArray = [forkArray (i)];
-           model.addLink(node{k},node{M+i});
-           model.addLink(node{i},node{M+i});
-        end
-
-        for j=1:M
-             if rowSum > 1 && P((i-1)*K+k,(j-1)*K+k) == 1
-                model.addLink(node{M+i},node{j});
-                setTasksPerLink(node{M+i},1.0);
-                node{M+i}.setRouting(jobclass{k}, 'Probabilities', node{j}, 1.0);
-             end  
-        end
-    end
-end
-
-joinArray = [];
-for j=1:M
-    for k = 1:K
-        columnSum = sum(P(:,(j-1)*K+k));
-        if columnSum < -1
-            node{M+j-numberOfForkJoinStations} = JoinStation(model, 'Join');
-            joinArray = [joinArray (j)];
-            model.addLink(node{M+j-numberOfForkJoinStations}, node{j});
-            
-        end
-        for i=1:M
-            if columnSum < -1 && P((i-1)*K+k,(j-1)*K+k) == -1
-                model.addLink(node{i}, node{M+j-numberOfForkJoinStations});
-            end
-        end
-            
-    end
-end
-
-
-
-for i=1:M
-    for k=1:K
-        rowSum = sum(P((i-1)*K+k,:));
-        if rowSum == 1
-            for j=1:M
-               if rowSum == 1 && P((i-1)*K+k,(j-1)*K+k) == 1
-                   model.addLink(node{i}, node{j});
-               end
-            end      
-        end    
-    end
-end
-
-
-for i=1:M+numberOfForkJoinStations
-    disp(node{i});
-end
-
-
-  
+% numberOfForkStations = 0;
+% for i=1:M
+%     for k=1:K
+%         rowSum = sum(P((i-1)*K+k,:));
+%         if rowSum > 1
+%             numberOfForkStations = numberOfForkStations + 1; 
+%         end
+%     end
+% end
+% 
+% numberOfForkJoinStations = numberOfForkStations * 2;
+% 
+% forkArray = [];
+% toFork = [];
+% for i=1:M
+%     for k=1:K
+%         rowSum = sum(P((i-1)*K+k,:));
+%         if rowSum > 1 
+%             forkArray = [forkArray (i)];
+%            for p=1:numberOfForkStations 
+%                node{M+p} = ForkStation(model, 'Fork');
+%                
+% 
+% %                model.addLink(node{k},node{M+p});
+%                model.addLink(node{i},node{M+p});
+% 
+%                for j=1:M
+%                  if rowSum > 1 && P((i-1)*K+k,(j-1)*K+k) == 1
+%                     model.addLink(node{M+p},node{j});
+%                     P((i-1)*K+k,(j-1)*K+k) = 0;
+%                     toFork = [toFork (j)];
+%                     setTasksPerLink(node{M+p},1.0);
+%                     node{M+p}.setRouting(jobclass{k}, 'Probabilities', node{j}, 1.0);
+%                  end  
+%               end
+%            end
+%         end
+% 
+% 
+%     end
+% end
+% 
+% joinArray = [];
+% for j=1:M
+%     for k = 1:K
+%         columnSum = sum(P(:,(j-1)*K+k));
+%         if columnSum < -1
+%             joinArray = [joinArray (j)];
+%             for p=1:numberOfForkStations
+%                 node{M+numberOfForkStations+p} = JoinStation(model, 'Join');
+%                 
+%                 model.addLink(node{M+numberOfForkStations + p}, node{j});
+%                 for i=1:M
+%                     if columnSum < -1 && P((i-1)*K+k,(j-1)*K+k) == -1
+%                         P((i-1)*K+k,(j-1)*K+k) = 0;
+%                         model.addLink(node{i}, node{M+numberOfForkStations + p});
+%                     end
+%                 end
+%             end
+%         end
+%         
+%             
+%     end
+% end
+% 
+% 
+% 
+% x = zeros(M,1);
+% for i=1:numberOfForkJoinStations
+%     P = [P,x];
+% end
+% 
+% y = zeros(1,M+numberOfForkJoinStations);
+% for i=1:numberOfForkJoinStations
+%     P = [P;y];
+% end
+% 
+% for i=1:length(forkArray)
+%        P(forkArray(i),M+i) = 1;
+%        P(M+i,toFork(2*i-1)) = 1;
+%        P(M+i,toFork(2*i)) = 1;
+% end
+% 
+% 
+% for i=1:length(joinArray)
+%         P(M+numberOfForkStations+i, joinArray(i)) = 1;
+%         P(toFork(2*i-1),M+numberOfForkStations+i) = 1;
+%         P(toFork(2*i),M+numberOfForkStations+i) = 1;   
+% end
+% 
+% disp(P);
+% 
+% 
+% M = M + numberOfForkJoinStations;
 
 for i=1:M
     for k = 1:K
@@ -154,33 +168,6 @@ for i=1:M
     end
 end
 
-x = zeros(M,1);
-for i=1:numberOfForkJoinStations
-    P = [P,x];
-end
-
-y = zeros(1,M+numberOfForkJoinStations);
-for i=1:numberOfForkJoinStations
-    P = [P;y];
-end
-
-for i=1:numberOfForkStations
-    for k=1:K
-       for c=1:K
-          P(forkArray(i),M+i) = 1;
-       end
-    end
-end
-
-for i=1:numberOfForkStations
-    for k=1:K
-       for c=1:K
-          P(M+numberOfForkStations+i,joinArray(i)) = 1;
-       end
-    end
-end
-
-M = M + numberOfForkJoinStations;
 
 for i=1:M
     for j=1:M
@@ -192,7 +179,7 @@ for i=1:M
         end
     end
 end
-
+  
 
 
 model.linkNetwork(node, jobclass, myP) ;
@@ -215,7 +202,7 @@ end
 
 %% solution
 Tstart = tic;
-model.runSimulation(1e4);
+model.runSimulation(1e5);
 runtime = toc(Tstart);
 results = model.getResults();
 

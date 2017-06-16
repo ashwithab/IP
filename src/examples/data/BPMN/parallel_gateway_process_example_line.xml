@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cqn-model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CQNmodel">
-   <processor name="Human_2_processor" util="0.000000000000000e+00"/>
-   <processor name="Human_3_processor" util="0.000000000000000e+00"/>
-   <processor name="Human_4_processor" util="0.000000000000000e+00"/>
+   <processor name="Human_2_processor" util="9.354092262216571e-12"/>
+   <processor name="Human_3_processor" util="1.000000000000000e+00"/>
+   <processor name="Human_4_processor" util="1.000000000000000e+00"/>
    <processor name="Human_5_processor" util="0.000000000000000e+00"/>
-   <processor name="Initiating Process_processor" util="0.000000000000000e+00"/>
-   <workload name="Initiating Process_processor" responseTime="0.000000000000000e+00" throughput="0.000000000000000e+00">
-      <station name="Human_2_processor" responseTime="0.000000000000000e+00"/>
-      <station name="Human_3_processor" responseTime="0.000000000000000e+00"/>
-      <station name="Human_4_processor" responseTime="0.000000000000000e+00"/>
+   <processor name="Initiating Process_processor" util="1.140687594451309e-12"/>
+   <workload name="Initiating Process_processor" responseTime="1.470000010898904e+02" throughput="1.140687594451309e-13">
+      <station name="Human_2_processor" responseTime="1.200000000000000e+01"/>
+      <station name="Human_3_processor" responseTime="6.500000052476204e+01"/>
+      <station name="Human_4_processor" responseTime="7.000000056512836e+01"/>
       <station name="Human_5_processor" responseTime="0.000000000000000e+00"/>
-      <station name="Initiating Process_processor" responseTime="0.000000000000000e+00"/>
+      <station name="Initiating Process_processor" responseTime="1.000000000000000e+01"/>
+      <responseTimeDistribution>
+         <percentile level="1.000000000000000e-01" value="NaN"/>
+         <percentile level="2.000000000000000e-01" value="NaN"/>
+         <percentile level="3.000000000000000e-01" value="NaN"/>
+         <percentile level="4.000000000000000e-01" value="NaN"/>
+         <percentile level="5.000000000000000e-01" value="NaN"/>
+         <percentile level="6.000000000000000e-01" value="NaN"/>
+         <percentile level="7.000000000000000e-01" value="NaN"/>
+         <percentile level="8.000000000000000e-01" value="NaN"/>
+         <percentile level="9.000000000000000e-01" value="NaN"/>
+      </responseTimeDistribution>
    </workload>
 </cqn-model>

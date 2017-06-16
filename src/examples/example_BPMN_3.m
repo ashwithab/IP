@@ -1,4 +1,4 @@
-% EXAMPLE_PARALLEL_PROCESS_BPMN exemplifies the use of LINE to analize BPMN models. 
+% EXAMPLE_SIMPLE_PROCESS_BPMN exemplifies the use of LINE to analyse BPMN models. 
 %
 % Copyright (c) 2012-2017, Imperial College London 
 % All rights reserved.

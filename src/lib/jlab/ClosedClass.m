@@ -42,4 +42,3 @@ classdef ClosedClass < CustomerClass
     end
     
 end
-

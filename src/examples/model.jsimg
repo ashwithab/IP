@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<sim xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disableStatisticStop="true" logDecimalSeparator="." logDelimiter=";" logPath="" logReplaceMode="0" maxSamples="10000" name="model.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+<sim xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disableStatisticStop="true" logDecimalSeparator="." logDelimiter=";" logPath="" logReplaceMode="0" maxSamples="100000" name="model.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
    <userClass customers="10" name="Initiating Process_processor" priority="0" referenceSource="Initiating Process_processor" type="closed"/>
    <node name="Human_2_processor">
       <section className="Queue">
@@ -45,22 +45,6 @@
             <refClass>Initiating Process_processor</refClass>
             <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
                <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
-                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
-                     <subParameter classPath="java.lang.String" name="stationName">
-                        <value>Human_3_processor</value>
-                     </subParameter>
-                     <subParameter classPath="java.lang.Double" name="probability">
-                        <value>5.000000e-01</value>
-                     </subParameter>
-                  </subParameter>
-                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
-                     <subParameter classPath="java.lang.String" name="stationName">
-                        <value>Human_4_processor</value>
-                     </subParameter>
-                     <subParameter classPath="java.lang.Double" name="probability">
-                        <value>5.000000e-01</value>
-                     </subParameter>
-                  </subParameter>
                   <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
                      <subParameter classPath="java.lang.String" name="stationName">
                         <value>Fork</value>
@@ -116,7 +100,18 @@
       <section className="Router">
          <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
             <refClass>Initiating Process_processor</refClass>
-            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Join</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
          </parameter>
       </section>
    </node>
@@ -162,7 +157,18 @@
       <section className="Router">
          <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
             <refClass>Initiating Process_processor</refClass>
-            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+            <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+               <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+                  <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                     <subParameter classPath="java.lang.String" name="stationName">
+                        <value>Join</value>
+                     </subParameter>
+                     <subParameter classPath="java.lang.Double" name="probability">
+                        <value>1</value>
+                     </subParameter>
+                  </subParameter>
+               </subParameter>
+            </subParameter>
          </parameter>
       </section>
    </node>
@@ -343,6 +349,46 @@
                         </subParameter>
                      </subParameter>
                   </subParameter>
+                  <subParameter classPath="jmt.engine.NetStrategies.ForkStrategies.OutPath" name="OutPathEntry">
+                     <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="outUnitProbability">
+                        <subParameter classPath="java.lang.String" name="stationName">
+                           <value>Human_3_processor</value>
+                        </subParameter>
+                        <subParameter classPath="java.lang.Double" name="probability">
+                           <value>1.0</value>
+                        </subParameter>
+                     </subParameter>
+                     <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="JobsPerLinkDis">
+                        <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                           <subParameter classPath="java.lang.String" name="numbers">
+                              <value>1</value>
+                           </subParameter>
+                           <subParameter classPath="java.lang.Double" name="probability">
+                              <value>1.0</value>
+                           </subParameter>
+                        </subParameter>
+                     </subParameter>
+                  </subParameter>
+                  <subParameter classPath="jmt.engine.NetStrategies.ForkStrategies.OutPath" name="OutPathEntry">
+                     <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="outUnitProbability">
+                        <subParameter classPath="java.lang.String" name="stationName">
+                           <value>Human_4_processor</value>
+                        </subParameter>
+                        <subParameter classPath="java.lang.Double" name="probability">
+                           <value>1.0</value>
+                        </subParameter>
+                     </subParameter>
+                     <subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="JobsPerLinkDis">
+                        <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+                           <subParameter classPath="java.lang.String" name="numbers">
+                              <value>1</value>
+                           </subParameter>
+                           <subParameter classPath="java.lang.Double" name="probability">
+                              <value>1.0</value>
+                           </subParameter>
+                        </subParameter>
+                     </subParameter>
+                  </subParameter>
                </subParameter>
             </subParameter>
          </parameter>
@@ -386,19 +432,18 @@
    <measure alpha="0.01" name="Performance_6" nodeType="station" precision="0.03" referenceNode="Fork" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
    <measure alpha="0.01" name="Performance_7" nodeType="station" precision="0.03" referenceNode="Join" referenceUserClass="Initiating Process_processor" type="Number of Customers" verbose="false"/>
    <connection source="Human_2_processor" target="Fork"/>
-   <connection source="Human_2_processor" target="Fork"/>
    <connection source="Fork" target="Human_3_processor"/>
    <connection source="Fork" target="Human_4_processor"/>
    <connection source="Join" target="Human_5_processor"/>
    <connection source="Human_3_processor" target="Join"/>
    <connection source="Human_4_processor" target="Join"/>
-   <connection source="Human_5_processor" target="Initiating Process_processor"/>
-   <connection source="Initiating Process_processor" target="Human_2_processor"/>
-   <connection source="Human_2_processor" target="Human_3_processor"/>
-   <connection source="Human_2_processor" target="Human_4_processor"/>
    <connection source="Human_2_processor" target="Fork"/>
+   <connection source="Human_3_processor" target="Join"/>
+   <connection source="Human_4_processor" target="Join"/>
    <connection source="Human_5_processor" target="Initiating Process_processor"/>
    <connection source="Initiating Process_processor" target="Human_2_processor"/>
+   <connection source="Fork" target="Human_3_processor"/>
+   <connection source="Fork" target="Human_4_processor"/>
    <connection source="Join" target="Human_5_processor"/>
    <preload>
       <stationPopulations stationName="Initiating Process_processor">
