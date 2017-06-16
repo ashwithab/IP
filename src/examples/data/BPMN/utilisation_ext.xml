@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmnExtensions>
+<resource id="Human_1" name ="Human_1" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_1" meanExecutionTime="00:000:00:00:12"/>
+</resource>
+<resource id="Human_2" name ="Human_2" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_2" meanExecutionTime="00:000:00:00:12"/>
+</resource>
+<resource id="Human_3" name ="Human_3" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_3" meanExecutionTime="00:000:00:00:13"/>
+</resource>
+<resource id="Human_4" name ="Human_4" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_4" meanExecutionTime="00:000:00:00:14"/>
+</resource>
+<resource id="Human_5" name ="Human_5" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_5" meanExecutionTime="00:000:00:00:15"/>
+</resource>
+<resource id="Human_6" name ="Human_6" multiplicity="1" scheduling="ps"> 
+ <assignment taskID="Task_6" meanExecutionTime="00:000:00:00:15"/>
+</resource>
+<parallelGateway id="ParallelGateway_1" incomingPerLink="1" outgoingPerLink="1" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_5"/>
+ <outgoingLink outgoingLinkID="SequenceFlow_6"/>
+ <outgoingLink outgoingLinkID="SequenceFlow_10"/>
+</parallelGateway>
+<parallelGateway id="ParallelGateway_2" incomingPerLink="1" outgoingPerLink="1" incomingPolicy="default" outgoingPolicy="default">
+ <outgoingLink outgoingLinkID="SequenceFlow_9"/>
+</parallelGateway>
+<startEvent id="StartEvent_1" meanThinkTime="00:000:00:00:10" multiplicity="10"/>
+</bpmnExtensions>
